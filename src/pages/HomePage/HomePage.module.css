@@ -1,0 +1,13 @@
+.main_section {
+    padding-top: 80px;
+    padding-left: 270px;
+    background-color: var(--body-background-color);
+}
+
+.card_content{
+    padding: 1.5rem;
+}
+
+.text_title{
+
+}
