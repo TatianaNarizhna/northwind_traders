@@ -16,7 +16,7 @@ const SuppliersList = ({suppliers}) => {
            </svg>
           </div>
         </header>
-      <div className={s.card_content}>
+      <div>
           <table>
             <thead>
                 <tr>
@@ -35,7 +35,7 @@ const SuppliersList = ({suppliers}) => {
                             <div className={s.avatar_img}>
                                 <img src={avatarLink} alt="Contact letters" className={s.radius}/></div>
                           </td>
-                        <td>{companyName}</td>
+                        <td><a className={s.link} href="/supplier/id">{companyName}</a></td>
                         <td>{name}</td>
                         <td>{title}</td>
                         <td>{city}</td>

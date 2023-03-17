@@ -53,8 +53,8 @@ td {
     font-size: 15px;
 }
 
-.card_content {
-
+.link {
+    color: var(--link-color-blue);
 }
 
   
