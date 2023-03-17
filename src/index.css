@@ -27,6 +27,15 @@ img {
   height: auto;
 }
 
+a {
+  text-decoration: none;
+}
+
+body, html { 
+  /* width: 100%;
+  height: 100%; */
+  margin: 0;
+}
 
 :root {
   --navbar-color: rgba(31, 41, 55, 1);
@@ -38,6 +47,7 @@ img {
   --time-color: rgb(31, 41, 55);
   --block-title-color: rgb(156, 163, 175);
   --body-background-color: rgb(249, 250, 251);
+  --link-color-blue: rgb(37, 99, 235);
 }
 
 
