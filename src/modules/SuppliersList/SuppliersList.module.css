@@ -1,6 +1,63 @@
+.section {
+    border: 1px solid var(--border-gray-color);
+    
+}
+
+.header {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border-gray-color);
+    background-color: var(--title-white-color);
+    border-radius: 5px;
+}
+
+.card_header {
+    padding: 0.90rem 1rem;
+    flex-grow: 1;
+    font-weight: 700;
+}
+
+
 .avatar_img {
     height: 1.5rem;
     width: 1.5rem;
-    margin-left: auto;
-    margin-right: auto;
 }
+
+.svg_container {
+    padding: 12px 15px 6px ;
+    border-radius: 50%;
+}
+
+.radius {
+    border-radius: 50%;  
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 2px;
+}
+
+th {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+thead {
+    background-color: var(--title-white-color);
+}
+
+td {
+    /* width: 1.5rem; */
+    padding: 0.5rem 0.75rem;
+    font-size: 15px;
+}
+
+.card_content {
+
+}
+
+  
+  tbody tr:nth-child(even) {
+    background-color: var(--title-white-color);
+  }

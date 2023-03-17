@@ -1,9 +1,22 @@
+import Redo from "../../svgFile/symbol-defs.svg"
 import s from './SuppliersList.module.css'
+
+
 
 const SuppliersList = ({suppliers}) => {
 
     return (
-        <div>
+   <section className={s.section}>
+    <div>
+        <header className={s.header}>
+            <p className={s.card_header}>Suppliers</p>
+         <div className={s.svg_container}> 
+           <svg width={22} height={22} >
+             <use xlinkHref={`${Redo}#icon-redo`} ></use>
+           </svg>
+          </div>
+        </header>
+      <div className={s.card_content}>
           <table>
             <thead>
                 <tr>
@@ -20,7 +33,7 @@ const SuppliersList = ({suppliers}) => {
                     <tr key={id}>
                         <td>
                             <div className={s.avatar_img}>
-                                <img src={avatarLink} alt="Contact letters" /></div>
+                                <img src={avatarLink} alt="Contact letters" className={s.radius}/></div>
                           </td>
                         <td>{companyName}</td>
                         <td>{name}</td>
@@ -32,6 +45,8 @@ const SuppliersList = ({suppliers}) => {
             </tbody>
           </table>
         </div>
+    </div>
+    </section>
     )
 }
 
