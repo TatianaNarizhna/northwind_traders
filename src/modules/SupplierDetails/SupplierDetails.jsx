@@ -1,6 +1,7 @@
-import Section from '../Section/Section'
-import Ballot from '../../svgFile/symbol-defs.svg'
-import s from './SupplierDetails.module.css'
+import Section from '../Section/Section';
+import Ballot from '../../svgFile/symbol-defs.svg';
+import GoBackButton from '../GoBackButton/GoBackButton';
+import s from './SupplierDetails.module.css';
 
 const SupplierDetails = ({ details }) => {
     const {Address, City, CompanyName, ContactName, ContactTitle, Country, Phone, PostalCode, Region } = details;
@@ -68,6 +69,7 @@ const SupplierDetails = ({ details }) => {
                
             </div>
           </div>
+          <GoBackButton path={"/suppliers"}/>
         </Section>
     
      
