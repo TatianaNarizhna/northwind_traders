@@ -9,6 +9,8 @@ import ProductsPage from './pages/ProductsPage/ProductsPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import SuppliersPage from './pages/SuppliersPage/SuppliersPage';
 
+import SupplierDetailsPage from './pages/SupplierDetailsPage/SupplierDetailsPage';
+
 import Nav from './modules/Nav/Nav';
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/dash" element={<DashboardPage />} />
         <Route path="/suppliers" element={<SuppliersPage />} />
+        <Route path="/supplier/:id" element={<SupplierDetailsPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/employees" element={<EmployeesPage />} />

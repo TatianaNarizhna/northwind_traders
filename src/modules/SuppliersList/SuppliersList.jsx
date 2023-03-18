@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Redo from "../../svgFile/symbol-defs.svg"
 import s from './SuppliersList.module.css'
 
@@ -35,7 +36,7 @@ const SuppliersList = ({suppliers}) => {
                             <div className={s.avatar_img}>
                                 <img src={avatarLink} alt="Contact letters" className={s.radius}/></div>
                           </td>
-                        <td><a className={s.link} href="/supplier/id">{companyName}</a></td>
+                        <td><Link className={s.link} to={`/supplier/${id}`}>{companyName}</Link></td>
                         <td>{name}</td>
                         <td>{title}</td>
                         <td>{city}</td>

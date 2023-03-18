@@ -4,25 +4,25 @@ import * as dataApi from '../../services/dataApi';
 import SuppliersList from '../../modules/SuppliersList/SuppliersList';
 import s from './SuppliersPage.module.css'
 
+
 const SuppliersPage = () => {
 const [suppliers, setSuppliers] = useState([]);
 const [currentPage, setCurrentPage] = useState(1);
 const [totalPages, setTotalPages] = useState(0);
 
 
-
 useEffect(() => {
-  dataApi.getSuppliersFirstRender(currentPage).then(data => {
-    
+  dataApi.getSuppliersFirstRender().then(data => {
+    let curPage = data.currentPage;
+
     setSuppliers(data.data)
-    setTotalPages(Math.round(data.totalPages))
-    setCurrentPage(data.currentPage)
-    console.log(data);
-   
+    setTotalPages(data.totalPages)
+    setCurrentPage(Number(curPage))
+
   })
 
 //   setSuppliers(res)
-}, [currentPage])
+}, [])
 
 const handlePageChange = (e, currentPage) => {
     dataApi.getSuppliers(currentPage).then(data => {
@@ -31,16 +31,26 @@ const handlePageChange = (e, currentPage) => {
     })
 }
 
-console.log(suppliers);
-
     return (
         <div className={s.main_content}>
-        <SuppliersList suppliers={suppliers}/>
-         <Stack spacing={2}>
-           <Pagination count={totalPages} variant="outlined" shape="rounded" 
-           page={currentPage}
-           onChange={handlePageChange}/>
-         </Stack>
+        <SuppliersList suppliers={suppliers} />
+
+         <div className={s.page_footer}>
+          <Stack spacing={2}>
+            <Pagination count={totalPages} variant="outlined" shape="rounded" 
+            page={Number(currentPage)}
+            onChange={handlePageChange}
+            hideNextButton
+            hidePrevButton
+            size="large"
+            />
+          
+          </Stack>
+              <p className={s.footer_info}>
+                Page {Number(currentPage)} of {totalPages}
+              </p>
+         </div>
+        
         </div>
     )
 }
