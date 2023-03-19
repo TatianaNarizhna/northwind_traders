@@ -33,8 +33,11 @@ export const getSupplierInfo = async id => {
   }
 };
 
-// const { data } = await axios.get(
-//   'https://northwind-mykyta-tetyana.onrender.com/pages/suppliers/1',
-// );
-
-// console.log(data);
+export const getProductsFirstRender = async () => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/pages/products/1?count=true`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};

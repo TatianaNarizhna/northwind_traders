@@ -7,7 +7,7 @@ import s from './SuppliersList.module.css'
 const SuppliersList = ({suppliers}) => {
 
     return (
-   <section className={s.section}>
+    <section className={s.section}>
     <div>
         <header className={s.header}>
             <p className={s.card_header}>Suppliers</p>

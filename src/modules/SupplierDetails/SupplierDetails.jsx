@@ -65,8 +65,6 @@ const SupplierDetails = ({ details }) => {
                     </ul>
 
                 </div>
-
-               
             </div>
           </div>
           <GoBackButton path={"/suppliers"}/>

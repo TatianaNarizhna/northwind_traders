@@ -20,8 +20,6 @@ useEffect(() => {
     setCurrentPage(Number(curPage))
 
   })
-
-//   setSuppliers(res)
 }, [])
 
 const handlePageChange = (e, currentPage) => {
@@ -33,7 +31,7 @@ const handlePageChange = (e, currentPage) => {
 
     return (
         <div className={s.main_content}>
-        <SuppliersList suppliers={suppliers} />
+         <SuppliersList suppliers={suppliers} />
 
          <div className={s.page_footer}>
           <Stack spacing={2}>
@@ -45,7 +43,7 @@ const handlePageChange = (e, currentPage) => {
             size="large"
             />
           
-          </Stack>
+           </Stack>
               <p className={s.footer_info}>
                 Page {Number(currentPage)} of {totalPages}
               </p>
