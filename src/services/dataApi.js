@@ -61,3 +61,30 @@ export const getProductInfo = async id => {
     console.log(error.message);
   }
 };
+
+export const getOrdersFirstRender = async () => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/pages/orders/1?count=true`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getOrders = async pageNumber => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/pages/orders/${pageNumber}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getOrderInfo = async id => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/item/order/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};

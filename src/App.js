@@ -11,6 +11,7 @@ import SuppliersPage from './pages/SuppliersPage/SuppliersPage';
 
 import SupplierDetailsPage from './pages/SupplierDetailsPage/SupplierDetailsPage';
 import ProductsDetailsPage from './pages/ProductsDetailsPage/ProductsDetailsPage';
+import OrderDetailsPage from './pages/OrdersDetailsPage/OrdersDetailsPage';
 
 import Nav from './modules/Nav/Nav';
 
@@ -30,6 +31,8 @@ function App() {
         <Route path="/product/:id" element={<ProductsDetailsPage />} />
 
         <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/order/:id" element={<OrderDetailsPage />} />
+
         <Route path="/employees" element={<EmployeesPage />} />
         <Route path="/customers" element={<CustomersPage />} />
         <Route path="/search" element={<SearchPage />} />

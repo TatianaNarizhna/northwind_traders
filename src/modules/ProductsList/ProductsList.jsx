@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Redo from "../../svgFile/symbol-defs.svg"
+import Redo from "../../svgFile/symbol-defs.svg";
 import s from './ProductsList.module.css';
 
 const ProductsList = ({ products }) => {
