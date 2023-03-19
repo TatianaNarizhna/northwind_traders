@@ -41,3 +41,23 @@ export const getProductsFirstRender = async () => {
     console.log(error.message);
   }
 };
+
+export const getProducts = async pageNumber => {
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}/pages/products/${pageNumber}`,
+    );
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getProductInfo = async id => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/item/product/${id}`);
+    return data.data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};

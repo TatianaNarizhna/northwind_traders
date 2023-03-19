@@ -23,7 +23,7 @@ useEffect(() => {
 }, []);
 
 const handlePageChange = (e, currentPage) => {
-    dataApi.getSuppliers(currentPage).then(data => {
+    dataApi.getProducts(currentPage).then(data => {
         setProducts(data.data)
         setCurrentPage(data.currentPage)
     })
