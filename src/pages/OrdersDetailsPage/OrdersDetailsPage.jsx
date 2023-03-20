@@ -7,17 +7,27 @@ import * as dataApi from "../../services/dataApi";
 
 const OrderDetailsPage = () => {
     const [orderInfo, setOrderInfo] = useState([]);
+    const [productsInfo, setProductsInfo] = useState([]);
     const { id } = useParams();
    
     useEffect(() => {
         dataApi.getOrderInfo(id).then( data   => {
             const [orderInfo] = data.orderInfo;
-            setOrderInfo(orderInfo)
+            const productsInfo = data.productsInfo;
+            setOrderInfo(orderInfo);
+            setProductsInfo(productsInfo);
+
+            console.log(productsInfo)
         })
-    }, [id])
+    }, [id]);
+
+    useEffect(() => {
+  
+    }, [])
+    
 
     return (
-        <OrderDetails details={orderInfo}/>
+        <OrderDetails details={orderInfo} productsInfo={productsInfo}/>
     )
 
 }
