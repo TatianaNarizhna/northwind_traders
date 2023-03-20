@@ -3,6 +3,16 @@ import Redo from "../../svgFile/symbol-defs.svg";
 import s from './OrdersList.module.css';
 
 const OrdersList = ({ orders }) => {
+
+  const correctData = (shipped) => {
+    let shippedCorrection = shipped.split(" ");
+    let firstElement = shippedCorrection[0];
+    return firstElement;
+
+  }
+
+
+
     return (
           <div>
             <header className={s.header}>
@@ -29,19 +39,20 @@ const OrdersList = ({ orders }) => {
                 </tr>
             </thead>
             <tbody>
-                {orders.map(({OrderId, TotalProductsPrice, TotalProducts, TotalProductsItems, Shipped, ShipName, City, Country}) => (
+                {orders.map(({OrderId, TotalProductsPrice, TotalProducts, TotalProductsItems, Shipped, ShipName, City, Country}) => 
+                  (
                     <tr key={OrderId}>
-                        <td><Link className={s.link} to={`/order/${OrderId}`}>{OrderId}</Link></td>
-                        <td>{TotalProductsPrice}</td>
-                        <td>{TotalProducts}</td>
-                        <td>{TotalProductsItems}</td>
-                        <td>{Shipped}</td>
-                        <td>{ShipName}</td>
-                        <td>{City}</td>
-                        <td>{Country}</td>
-                        
-                    </tr>
-                ))}
+                    <td><Link className={s.link} to={`/order/${OrderId}`}>{OrderId}</Link></td>
+                    <td>{TotalProductsPrice}</td>
+                    <td>{TotalProducts}</td>
+                    <td>{TotalProductsItems}</td>
+                    <td>{ correctData(Shipped)}</td>
+                    <td>{ShipName}</td>
+                    <td>{City}</td>
+                    <td>{Country}</td>
+                   </tr>
+                  )
+                )}
             </tbody>
           </table>
         </div>

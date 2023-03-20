@@ -108,3 +108,34 @@ export const getEmployeeInfo = async id => {
     console.log(error.message);
   }
 };
+
+export const getCustomersFirstRender = async () => {
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}/pages/customers/1?count=true`,
+    );
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getCustomers = async pageNumber => {
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}/pages/customers/${pageNumber}`,
+    );
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getCustomerInfo = async id => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/item/customer/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};

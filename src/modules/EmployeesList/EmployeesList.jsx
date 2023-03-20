@@ -28,10 +28,10 @@ const EmployeesList = ({ employees }) => {
           <tbody>
               {employees.map(({id, name, title, city, phone, country, avatarLink}) => (
                   <tr key={id}>
-                      <td>
+                       <td>
                          <div className={s.avatar_img}>
                              <img src={avatarLink} alt="Employees letters" className={s.radius}/></div>
-                          </td>
+                       </td>
                       <td><Link className={s.link} to={`/employee/${id}`}>{name}</Link></td>
                       <td>{title}</td>
                       <td>{city}</td>

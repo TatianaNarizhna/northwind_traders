@@ -7,7 +7,7 @@ import s from './EmpoyeeDetails.module.css';
 
 const EmployeeDetails = ({ employeeInfo }) => {
     // const [info] = employeeInfo;
-    const {EmployeeID,FirstName, LastName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, PostalCode, Country, HomePhone, Extension, Notes, ReportsTo } = employeeInfo;
+    const {FirstName, LastName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, PostalCode, Country, HomePhone, Extension, Notes, ReportsTo, reportsName } = employeeInfo;
 
     console.log(employeeInfo)
 
@@ -30,7 +30,7 @@ const EmployeeDetails = ({ employeeInfo }) => {
                     <ul>
                         <li  className={s.list_field}>
                             <label  className={s.label}>Name</label>
-                            <p  className={s.name}>{FirstName}{LastName}</p>
+                            <p  className={s.name}>{FirstName} {LastName}</p>
                         </li>
                         <li className={s.list_field}>
                             <label className={s.label}>Title</label>
@@ -79,14 +79,11 @@ const EmployeeDetails = ({ employeeInfo }) => {
                         <label className={s.label}>Notes</label>
                          <p className={s.name}>{Notes}</p>
                      </li>
-                     {/* <li className={s.list_field}>
-                        <label className={s.label}>Reports To</label>
-                         <p className={s.name}>{ReportsTo}</p>
-                     </li> */}
+
 
                      {ReportsTo && <li className={s.list_field}>
                         <label className={s.label}>Reports To</label>
-                         <p className={s.name}><Link className={s.link} to={`/employee/${ReportsTo}`}>{ReportsTo}</Link></p>
+                         <p className={s.name}><Link className={s.link} to={`/employee/${ReportsTo}`}>{reportsName}</Link></p>
                      </li>}
 
 

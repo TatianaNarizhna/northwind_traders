@@ -14,6 +14,7 @@ import SupplierDetailsPage from './pages/SupplierDetailsPage/SupplierDetailsPage
 import ProductsDetailsPage from './pages/ProductsDetailsPage/ProductsDetailsPage';
 import OrderDetailsPage from './pages/OrdersDetailsPage/OrdersDetailsPage';
 import EmployeeDetailsPage from './pages/EmployeeDetailsPage/EmployeeDetailsPage';
+import CustomerDetailsPage from './pages/CustomerDetailsPage/CustomerDetailsPage';
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
         <Route path="/employee/:id" element={<EmployeeDetailsPage />} />
 
         <Route path="/customers" element={<CustomersPage />} />
+        <Route path="/customer/:id" element={<CustomerDetailsPage />} />
+
         <Route path="/search" element={<SearchPage />} />
       </Routes>
     </BrowserRouter>
