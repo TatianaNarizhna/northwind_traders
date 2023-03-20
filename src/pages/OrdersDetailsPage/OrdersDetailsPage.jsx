@@ -11,20 +11,14 @@ const OrderDetailsPage = () => {
     const { id } = useParams();
    
     useEffect(() => {
-        dataApi.getOrderInfo(id).then( data   => {
+        dataApi.getOrderInfo(id).then( data => {
             const [orderInfo] = data.orderInfo;
             const productsInfo = data.productsInfo;
             setOrderInfo(orderInfo);
             setProductsInfo(productsInfo);
 
-            console.log(productsInfo)
         })
     }, [id]);
-
-    useEffect(() => {
-  
-    }, [])
-    
 
     return (
         <OrderDetails details={orderInfo} productsInfo={productsInfo}/>

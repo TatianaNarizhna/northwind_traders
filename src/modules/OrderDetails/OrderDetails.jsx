@@ -130,11 +130,7 @@ const OrderDetails = ({ details, productsInfo }) => {
          </div>
            <GoBackButton path={"/orders"}/>
          </Section>
-     
-      
-     
      )
- 
  }
  
  export default OrderDetails;

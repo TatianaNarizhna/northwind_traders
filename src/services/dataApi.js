@@ -88,3 +88,23 @@ export const getOrderInfo = async id => {
     console.log(error.message);
   }
 };
+
+export const getAllEmployees = async () => {
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}/pages/employees/1?count=true`,
+    );
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getEmployeeInfo = async id => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/item/employee/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};

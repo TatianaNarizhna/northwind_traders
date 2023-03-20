@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './modules/NavBar/Navbar';
+import Nav from './modules/Nav/Nav';
 import HomePage from './pages/HomePage/HomePage.jsx';
 import CustomersPage from './pages/CustomersPage/CustomersPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage.jsx';
@@ -12,8 +13,7 @@ import SuppliersPage from './pages/SuppliersPage/SuppliersPage';
 import SupplierDetailsPage from './pages/SupplierDetailsPage/SupplierDetailsPage';
 import ProductsDetailsPage from './pages/ProductsDetailsPage/ProductsDetailsPage';
 import OrderDetailsPage from './pages/OrdersDetailsPage/OrdersDetailsPage';
-
-import Nav from './modules/Nav/Nav';
+import EmployeeDetailsPage from './pages/EmployeeDetailsPage/EmployeeDetailsPage';
 
 function App() {
   return (
@@ -34,6 +34,8 @@ function App() {
         <Route path="/order/:id" element={<OrderDetailsPage />} />
 
         <Route path="/employees" element={<EmployeesPage />} />
+        <Route path="/employee/:id" element={<EmployeeDetailsPage />} />
+
         <Route path="/customers" element={<CustomersPage />} />
         <Route path="/search" element={<SearchPage />} />
       </Routes>
