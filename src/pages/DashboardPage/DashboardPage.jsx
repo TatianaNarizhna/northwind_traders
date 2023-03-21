@@ -15,9 +15,6 @@ const DashboardPage = ({ dash }) => {
      
     }, [])
     
-
-
-
     return (
         <Section className={s.section_dash}>
             <div className={s.grid}>

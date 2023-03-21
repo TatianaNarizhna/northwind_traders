@@ -1,4 +1,78 @@
-.page {
-    text-align: center;
-    padding-top: 80px;
+.container {
+  background-color: var(--title-white-color);
+  height: 100vh;
+  padding: 1.5rem;
+}
+
+.input_container {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.title_search {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  padding-left: 2.5rem;
+  height: 2.5rem;
+  width: 50%;
+  border-color: var(--block-title-color);
+  border-radius: 0.25rem;
+  border-width: 1px;
+  padding: 8px 45px;
+  margin: 0;
+  font-size: 16px;
+}
+
+.svg_style {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio_container {
+  margin-bottom: 0.75rem;
+}
+
+.legend {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.label_radio:not(:last-child) {
+  margin-right: 0.75rem;
+}
+
+.input_button {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.check {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  vertical-align: middle;
+}
+
+.check:checked {
+  background-color: var(--link-color-blue);
+  border-color: #3182ce;
+}
+
+input[type='radio']:checked + .check {
+  background-color: var(--link-color-blue);
+  border-color: #3182ce;
 }

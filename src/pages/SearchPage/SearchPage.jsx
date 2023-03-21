@@ -36,17 +36,12 @@ console.log(selectedValue)
 
     return (
         <Section>
-            <div>
-                <h2>Search Database</h2>
+            <div className={s.container}>
+               <h3 className={s.title_search}>Search Database</h3>
                 <form onSubmit={formSubmit}>
-				<div>
-					<button type="submit" >
-                    <svg width={25} height={25} >
-                      <use xlinkHref={`${Search}#icon-search`} ></use>
-                    </svg>
-
-					</button>
+				 <div className={s.input_container}>
 					<input
+                        className={s.input}
 						type="search"
 						name="search"
 						id="searchInput"
@@ -54,11 +49,18 @@ console.log(selectedValue)
 						value={searchTextInput}
 						onChange={handleInput}
 					/>
-				</div>
+                    <span className={s.svg_style}>
+                     <svg width={15} height={15} >
+                       <use xlinkHref={`${Search}#icon-search`} ></use>
+                     </svg>
+                    </span>
+				 </div>
 				
-				<legend>Tables</legend>	
-					<label htmlFor="products">
+                <div className={s.radio_container}>
+				<legend className={s.legend}>Tables</legend>	
+					<label htmlFor="products" className={s.label_radio}>
 						<input
+                            className={s.input_button}
 							type="radio"
 							id="products"
 							name="table"
@@ -66,7 +68,8 @@ console.log(selectedValue)
 							defaultChecked
 							onChange={handleRadioChange}
 						/>{" "}
-						Products
+                    <span className={s.check}></span>
+					<span>Products</span>
 					</label>
 					<label htmlFor="customers" >
 						<input
@@ -78,6 +81,7 @@ console.log(selectedValue)
 						/>{" "}
 						Customers
 					</label>
+                    </div>
 			
 				<h4>Search results</h4>
 				{loader && <h4>Searching Data</h4>}
