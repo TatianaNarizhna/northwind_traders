@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, createContext } from 'react';
 import Navbar from './modules/NavBar/Navbar';
 import Nav from './modules/Nav/Nav';
 import HomePage from './pages/HomePage/HomePage.jsx';
@@ -16,32 +17,44 @@ import OrderDetailsPage from './pages/OrdersDetailsPage/OrdersDetailsPage';
 import EmployeeDetailsPage from './pages/EmployeeDetailsPage/EmployeeDetailsPage';
 import CustomerDetailsPage from './pages/CustomerDetailsPage/CustomerDetailsPage';
 
+export const MyContext = createContext(null);
+
 function App() {
+  const [dash, setDash] = useState([]);
+
+  const handleDashChange = newState => {
+    setDash(newState);
+  };
+
+  console.log(dash);
+
   return (
     <BrowserRouter>
       <Nav />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/dash" element={<DashboardPage />} />
+      <MyContext.Provider value={{ dash, handleDashChange }}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dash" element={<DashboardPage dash={dash} />} />
 
-        <Route path="/suppliers" element={<SuppliersPage />} />
-        <Route path="/supplier/:id" element={<SupplierDetailsPage />} />
+          <Route path="/suppliers" element={<SuppliersPage />} />
+          <Route path="/supplier/:id" element={<SupplierDetailsPage />} />
 
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/product/:id" element={<ProductsDetailsPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/product/:id" element={<ProductsDetailsPage />} />
 
-        <Route path="/orders" element={<OrdersPage />} />
-        <Route path="/order/:id" element={<OrderDetailsPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/order/:id" element={<OrderDetailsPage />} />
 
-        <Route path="/employees" element={<EmployeesPage />} />
-        <Route path="/employee/:id" element={<EmployeeDetailsPage />} />
+          <Route path="/employees" element={<EmployeesPage />} />
+          <Route path="/employee/:id" element={<EmployeeDetailsPage />} />
 
-        <Route path="/customers" element={<CustomersPage />} />
-        <Route path="/customer/:id" element={<CustomerDetailsPage />} />
+          <Route path="/customers" element={<CustomersPage />} />
+          <Route path="/customer/:id" element={<CustomerDetailsPage />} />
 
-        <Route path="/search" element={<SearchPage />} />
-      </Routes>
+          <Route path="/search" element={<SearchPage />} />
+        </Routes>
+      </MyContext.Provider>
     </BrowserRouter>
   );
 }

@@ -27,7 +27,7 @@ export const getSuppliers = async pageNumber => {
 export const getSupplierInfo = async id => {
   try {
     const { data } = await axios.get(`${BASE_URL}/item/supplier/${id}`);
-    return data.data;
+    return data;
   } catch (error) {
     console.log(error.message);
   }
@@ -56,7 +56,7 @@ export const getProducts = async pageNumber => {
 export const getProductInfo = async id => {
   try {
     const { data } = await axios.get(`${BASE_URL}/item/product/${id}`);
-    return data.data;
+    return data;
   } catch (error) {
     console.log(error.message);
   }
@@ -139,3 +139,21 @@ export const getCustomerInfo = async id => {
     console.log(error.message);
   }
 };
+
+export const getSearchInformation = async (value, search) => {
+  try {
+    const { data } = await axios.get(`${BASE_URL}/search/${value}/${search}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+// export const getCustomersSearch = async search => {
+//   try {
+//     const { data } = await axios.get(`${BASE_URL}/search/customers/${search}`);
+//     return data;
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// };

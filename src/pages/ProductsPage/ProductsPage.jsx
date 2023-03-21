@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Pagination, Stack } from '@mui/material';
 import * as dataApi from '../../services/dataApi';
 import ProductsList from '../../modules/ProductsList/ProductsList';
 import Section from '../../modules/Section/Section';
+import { MyContext } from '../../App';
 
 import s from './ProductsPage.module.css'
 
@@ -11,14 +12,20 @@ const [products, setProducts] = useState([]);
 const [currentPage, setCurrentPage] = useState(1);
 const [totalPages, setTotalPages] = useState(0);
 
+const {  handleDashChange } = useContext(MyContext);
 
 useEffect(() => {
   dataApi.getProductsFirstRender().then(data => {
     let curPage = data.currentPage;
 
-    setProducts(data.data)
-    setTotalPages(data.totalPages)
-    setCurrentPage(Number(curPage))
+    setProducts(data.data);
+    setTotalPages(data.totalPages);
+    setCurrentPage(Number(curPage));
+
+    handleDashChange((prevState) => {
+      const updatedDash = [data.sqlQueries[1], ...prevState, ]
+      return updatedDash;
+    });
   })
 }, []);
 
