@@ -35,8 +35,8 @@ const DashboardPage = ({ dash }) => {
         return array.reduce((acc, obj) => {
            acc.resultsCount += obj.resultsCount;
            let countSelect = obj.sqlType === "select" ? acc.select + 1 : 0;
-           let countWhere = obj.sqlType === "select" ? acc.select + 1 : 0;
-           let countLeftJoin = obj.sqlType === "select" ? acc.select + 1 : 0;
+           let countWhere = obj.sqlType === "select where" ? acc.select + 1 : 0;
+           let countLeftJoin = obj.sqlType === "select where left join" ? acc.select + 1 : 0;
            acc.select += countSelect;
            acc.selectWhere += countWhere;
            acc.selectWhere += countLeftJoin;
