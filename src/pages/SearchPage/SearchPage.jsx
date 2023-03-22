@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Search from '../../svgFile/symbol-defs.svg';
 import Section from '../../modules/Section/Section';
 import * as dataApi from '../../services/dataApi';
+import { MyContext } from '../../App';
 import s from './SearchPage.module.css'
 
 const SearchPage = () => {
@@ -11,17 +12,23 @@ const SearchPage = () => {
     const [responseData, setResponseData] = useState([]);
     const [loader, setLoader] = useState(false);
 
+    const {  handleDashChange } = useContext(MyContext);
+
     const handleRadioChange = (e) => {
         setSelectedValue(e.target.value);
 
         if(searchTextInput) {
             dataApi.getSearchInformation(e.target.value, searchTextInput).then(res => {
                 setResponseData(res.data)
+                handleDashChange((prevState) => {
+                    const updatedDash = [res.sqlQueries[0], ...prevState, ]
+                    return updatedDash;
+                  });
 
             })
         }
       };
-console.log(selectedValue)
+
     const handleInput = (e) => {
         setSearchTextInput(e.target.value);
     };
@@ -30,6 +37,11 @@ console.log(selectedValue)
         e.preventDefault();
         dataApi.getSearchInformation(selectedValue, searchTextInput).then(res => {
             setResponseData(res.data)
+
+            handleDashChange((prevState) => {
+                const updatedDash = [res.sqlQueries[0], ...prevState, ]
+                return updatedDash;
+              });
          }
         )
     }
@@ -57,7 +69,8 @@ console.log(selectedValue)
 				 </div>
 				
                 <div className={s.radio_container}>
-				<legend className={s.legend}>Tables</legend>	
+				<legend className={s.legend}>Tables</legend>
+                  <div className={s.labels_st}>	
 					<label htmlFor="products" className={s.label_radio}>
 						<input
                             className={s.input_button}
@@ -69,52 +82,55 @@ console.log(selectedValue)
 							onChange={handleRadioChange}
 						/>{" "}
                     <span className={s.check}></span>
-					<span>Products</span>
+					<span className={s.radio_name}>Products</span>
 					</label>
-					<label htmlFor="customers" >
+					<label htmlFor="customers" className={s.label_radio} >
 						<input
+                            className={s.input_button}
 							type="radio"
 							id="customers"
 							name="table"
 							value="customers"
 							onChange={handleRadioChange}
 						/>{" "}
-						Customers
+                        <span className={s.check}></span>
+                        <span className={s.radio_name}>Customers</span>
+						
 					</label>
+                 </div>
                     </div>
 			
-				<h4>Search results</h4>
+				<h4 className={s.result}>Search results</h4>
 				{loader && <h4>Searching Data</h4>}
 
-
+             
             <output name="result" htmlFor="searchInput">
 					{responseData ? (
 						<>
 							{selectedValue === 'products'
 								? responseData.map(({id, name, quantPerUnit, price, stock}, index) => (
                                     <div key={id}>                   
-                                      <p>
-                                       <Link to={`/product/${id}`}>{name}</Link>
+                                      <p className={s.output}>
+                                       <Link className={s.visited} to={`/product/${id}`}>{name}</Link>
                                       </p>
-                                       <p>#{index+1}, Quantity Per Unit:{quantPerUnit}, Price: {price}, Stock: {stock} </p>
+                                       <p className={s.rext_output}>#{index+1}, Quantity Per Unit:{quantPerUnit}, Price: {price}, Stock: {stock} </p>
                                      </div>
 
 								  ))
 								: responseData.map(({ id, name, contact, title, phone }, index ) => (
                                     <div key={id}>                   
-                                    <p>
-                                      <Link to={`/customer/${id}`}>{name}</Link>
+                                    <p className={s.output}>
+                                      <Link className={s.visited} to={`/customer/${id}`}>{name}</Link>
                                     </p>
-                                    <p>#{index+1}, Contact:{contact}, Title: {title}, Phone: {phone} </p>
+                                    <p className={s.rext_output}>#{index+1}, Contact:{contact}, Title: {title}, Phone: {phone} </p>
                                 </div>
 								  ))}
 						</>
-					) : (
-						"No results"
-					)}
+					) : 
+						<p>No results</p>
+					}
 				</output>
-	
-			
+
 			</form>
 
             </div>
