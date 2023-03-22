@@ -23,7 +23,7 @@ const OrdersPage = () => {
           setCurrentPage(Number(curPage))
 
           handleDashChange((prevState) => {
-            const updatedDash = [data.sqlQueries[1], ...prevState,]
+            const updatedDash = [data.sqlQueries, ...prevState,]
             return updatedDash;
           })
         })

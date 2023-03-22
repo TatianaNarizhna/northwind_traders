@@ -1,6 +1,21 @@
-/* Section.section_dash {
-    border: transparent;
-} */
+.card_content {
+  padding: 1.5rem;
+}
+
+.text {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.sql {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.worker {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
 
 .grid {
   display: grid;
