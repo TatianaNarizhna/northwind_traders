@@ -9,7 +9,7 @@ const DashboardPage = ({ dash }) => {
    const [metrics, setMetrics] = useState(null);
    const [country, setCountry] = useState('')
 
-    console.log(lastLog);
+    // console.log(lastLog);
     let arr = []
 
     useEffect(() => {
@@ -39,13 +39,14 @@ const DashboardPage = ({ dash }) => {
            let countLeftJoin = obj.sqlType === "select where left join" ? acc.select + 1 : 0;
            acc.select += countSelect;
            acc.selectWhere += countWhere;
-           acc.selectWhere += countLeftJoin;
+           acc.selectLeftJoin += countLeftJoin;
         return acc;
         }, {resultsCount: 0, select: 0, selectWhere: 0, selectLeftJoin: 0}); 
     }
     
     useEffect(() => {
         axios.get('http://ip-api.com/json/').then(({ data }) => 
+
        setCountry(data.countryCode)
      
     )}, [])
@@ -62,7 +63,7 @@ const DashboardPage = ({ dash }) => {
 
                 <div>
                     <p className={s.sql}>SQL Metrics</p>
-                    <p className={s.text}>Query count: {lastLog.length}</p>
+                    <p className={s.text}>Query count: {arr.length}</p>
                                 
                     <p className={s.text}>Results count: {metrics && metrics.resultsCount}</p>
                     <p className={s.text}># SELECT: {metrics && metrics.select}</p>
