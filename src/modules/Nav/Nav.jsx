@@ -5,7 +5,7 @@ import s from './Nav.module.css'
 
 const Nav = () => {
 const [time, setTime] = useState(new Date());
-// const [activeLink, setActiveLink] = useState(null);
+const [activeLink, setActiveLink] = useState(false);
 
 useEffect(() => {
     const intervalId = setInterval(() => {
@@ -24,10 +24,12 @@ useEffect(() => {
 
   const handleLinkClick = (e) => {
     e.preventDefault();
-    console.log(e.currentTarget);
-    // setActiveLink(linkId);
-    // setActiveLink(!false);
+    setActiveLink(!activeLink);
   };
+
+   const activeLinkColor = (isActive) => {
+    return isActive ? `${s.navBar_link} ${s.active}` : s.navBar_link;
+   };
 
 // console.log(activeLink)
     return (
@@ -38,7 +40,9 @@ useEffect(() => {
 
             <div className={s.navBar_menu}>
               <div className={s.navBar_items}>
-                 <a href="/" className={s.navBar_link}
+                <div>
+                 <a href="/" className={activeLinkColor(activeLink)}
+            
                      onClick={handleLinkClick}>
                    <span className={s.navBar_icons}>
                       <svg width={18} height={18} >
@@ -52,7 +56,8 @@ useEffect(() => {
                       </svg>
                    </span>
                   </a>
-                <Dropdown />
+                  </div>
+                {activeLink && <Dropdown />}
                </div>
             
             </div>

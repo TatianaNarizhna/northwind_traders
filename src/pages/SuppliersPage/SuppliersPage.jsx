@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Pagination, Stack } from '@mui/material';
 import * as dataApi from '../../services/dataApi';
 import SuppliersList from '../../modules/SuppliersList/SuppliersList';
+import Section from '../../modules/Section/Section';
 import { MyContext } from '../../App';
 import s from './SuppliersPage.module.css'
 
@@ -37,7 +38,7 @@ const handlePageChange = (e, currentPage) => {
 }
 
     return (
-        <div className={s.main_content}>
+      <Section>
          <SuppliersList suppliers={suppliers} />
 
          <div className={s.page_footer}>
@@ -55,8 +56,7 @@ const handlePageChange = (e, currentPage) => {
                 Page {Number(currentPage)} of {totalPages}
               </p>
          </div>
-        
-        </div>
+        </Section>
     )
 }
 

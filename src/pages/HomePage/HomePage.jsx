@@ -1,8 +1,10 @@
+
 import s from './HomePage.module.css'
 
 const HomePage = () => {
     return (
-        <section className={s.main_section}>
+ 
+     <section className={s.main_section}> 
          <div className={s.card_content}>
             <p className={s.card_title}>Welcome to Northwind Traders</p>
             <div className={s.card_subtitle}>
@@ -19,7 +21,8 @@ const HomePage = () => {
              <p className={s.text_base}>You can use the UI to explore Supplies, Orders, Customers, Employees and Products, or you can use search if you know what you're looking for.</p>
 
          </div>
-        </section>
+         </section> 
+      
     )
 }
 

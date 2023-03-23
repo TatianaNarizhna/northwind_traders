@@ -27,7 +27,3 @@
   margin-left: 0.5rem;
   color: var(--tw-ring-offset-shadow);
 }
-
-.navBar_items.active > .navBar_link {
-  color: var(--border-color);
-}
